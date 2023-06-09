@@ -12,7 +12,7 @@ import java.time.Instant;
 
 @Service
 @Log4j2
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
@@ -24,7 +24,7 @@ public class OrderServiceImpl implements OrderService{
     public long placeOrder(OrderRequest orderRequest) {
         log.info("Placing Order Request: {}", orderRequest);
 
-        productService.reduceQuantity(orderRequest.getProductId(),orderRequest.getQuantity());
+        productService.reduceQuantity(orderRequest.getProductId(), orderRequest.getQuantity());
 
         log.info("Creating order with status CREATED");
         Order order = Order.builder()
